@@ -16,9 +16,9 @@
   }
   
   .img-container img {
-      transform: skew(0deg, -13deg);
+      transform: skew(0deg, -10deg);
       height: 250px;
-      margin: -35px 0px 0px -70px;
+      margin: -35px 0px 0px -30px;
   }
   
   .inner-skew {
@@ -46,7 +46,13 @@
   }
   
   .text-container h3 {
-    margin: 20px 0px 10px 0px;
+    margin: 20px 0px 5px 0px;
     color: #04bcff;
     font-size: 18px;
+  }
+
+  .text-container h4 {
+    margin: 10px 0px 10px 0px;
+    color: #000000;
+    font-size: 16px;
   }

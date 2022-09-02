@@ -1,0 +1,33 @@
+
+.navbar {
+    background-color: #fdfdfd;
+    margin: 0;
+    padding: 0 0 0 50px;
+    box-sizing: border-box;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.navbar ul li {
+ display: inline-block;
+ padding: 20px;
+ border-bottom: 2px solid transparent;
+}
+
+.navbar ul li:hover {
+    border-bottom: 2px solid #333;
+}
+
+/* .navbar button, .navbar a {
+    margin-left: 16px;
+} */
+
+.navbar a {
+    color: #333;
+    text-decoration: none;
+}

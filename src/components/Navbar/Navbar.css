@@ -1,9 +1,19 @@
+.navbar-upper-line {
+    padding: 0.25%;
+    background-color: #15ac5c;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
 
 .navbar {
-    background-color: #fdfdfd;
+    background-color: #82828214;
     margin: 0;
     padding: 0 0 0 50px;
     box-sizing: border-box;
+    font-family: "Poppins", "Comic Sans", sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    color: #0d552d;
 }
 
 .navbar ul {
@@ -11,12 +21,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
-}
-
-.navbar ul li {
- display: inline-block;
- padding: 20px;
- border-bottom: 2px solid transparent;
 }
 
 .navbar ul li:hover {

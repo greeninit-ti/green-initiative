@@ -9,13 +9,14 @@ export default function Navbar() {
 
   return (
     <header>
+      <div className="navbar-upper-line"></div>
       <nav className="navbar">
         <img
-          className="logo"
-          src={require("C:\\Users\\yai\\react-projects\\plant-app\\plant-app\\src\\assets\\green-initiative-logo.png")}
+          class="logo"
+          src={require("C:\\ssev\\SAGaton\\GreenInitiative\\src\\assets\\green-initiative-logo.png")}
           alt="logo"
         />
-        {user && <p>Hello, {user.displayName}</p>}
+        {user && <p>Hello, {user.displayName}!</p>}
 
         <ul>
           {!user && (

@@ -11,7 +11,7 @@ export default function Navbar() {
     <header>
       <nav className="navbar">
         <img
-          class="logo"
+          className="logo"
           src={require("C:\\Users\\yai\\react-projects\\plant-app\\plant-app\\src\\assets\\green-initiative-logo.png")}
           alt="logo"
         />

@@ -3,6 +3,7 @@ import { useLogout } from "../../hooks/useLogout";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import logo from "../../assets/green-initiative-logo.png";
+import Points from "./Points";
 
 export default function Navbar() {
   const { logout } = useLogout();
@@ -12,8 +13,13 @@ export default function Navbar() {
     <header>
       <div className="navbar-upper-line"></div>
       <nav className="navbar">
-        <img class="logo" src={logo} alt="logo" />
-        {user && <p>Hello, {user.displayName}!</p>}
+        <img className="logo" src={logo} alt="logo" />
+        {user && (
+          <>
+            <p>Hello, {user.displayName}!</p>
+            <Points userId={user.uid} />
+          </>
+        )}
 
         <ul>
           {!user && (

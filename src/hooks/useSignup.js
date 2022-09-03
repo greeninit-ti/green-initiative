@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { projectAuth } from "../firebase/config";
+import { projectAuth, projectFirestore } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
@@ -23,6 +23,13 @@ export const useSignup = () => {
       }
 
       await res.user.updateProfile({ displayName: username });
+
+      // create a user document
+      await projectFirestore.collection("users").doc(res.user.uid).set({
+        rfid: "",
+        displayName: username,
+        points: 0,
+      });
 
       // dispatch login context
       dispatch({ type: "LOGIN", payload: res.user });

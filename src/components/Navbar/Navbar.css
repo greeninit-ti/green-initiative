@@ -26,7 +26,7 @@
     padding: 30px 11%;
 }
 
-.navbar ul li:hover {
+.btn:hover {
     border-bottom: 2px solid #333;
 }
 

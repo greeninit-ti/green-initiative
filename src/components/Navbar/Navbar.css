@@ -9,27 +9,26 @@
     background-color: #82828214;
     margin: 0;
     padding: 0 0 0 50px;
+    text-indent: 120%;
+    white-space: nowrap;
     box-sizing: border-box;
     font-family: "Poppins", "Comic Sans", sans-serif;
     font-weight: bold;
     font-size: x-large;
     color: #0d552d;
+    justify-content: space-between;
 }
 
 .navbar ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
+    padding: 30px 11%;
 }
 
-.navbar ul li:hover {
+.btn:hover {
     border-bottom: 2px solid #333;
 }
-
-/* .navbar button, .navbar a {
-    margin-left: 16px;
-} */
 
 .navbar a {
     color: #333;

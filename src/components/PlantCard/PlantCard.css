@@ -66,9 +66,17 @@
 
   .text-container h4 {
     margin: 10px 0px 10px 0px;
-    color: #000000;
     font-size: 16px;
   }
+
+  .c-box {
+    display: inline-block;
+    width: 240px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 20px;
+  }
+
 
 
  

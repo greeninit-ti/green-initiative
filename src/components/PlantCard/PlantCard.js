@@ -10,6 +10,8 @@ export default function PlantCard(props) {
   const ref = useRef(null);
 
   return (
+    <div className="c-box" onClick={() => props.onClick(props.mapURL)}>
+
     <OverlayTrigger
       trigger={["hover", "focus"]}
       placement={placement}
@@ -48,7 +50,7 @@ export default function PlantCard(props) {
         </div>
         <div className="text-container">
           <h3>{props.name}</h3>
-          <h4>{props.slot}</h4>
+          <h4 style={{color:props.zone_color}}>{props.slot}</h4>
           <ProgressBar
             variant={
               props.moisture <= 33
@@ -59,9 +61,11 @@ export default function PlantCard(props) {
             }
             now={props.moisture}
             label={`${props.moisture}%`}
+            animated
           />
         </div>
       </div>
     </OverlayTrigger>
+    </div>
   );
 }

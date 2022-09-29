@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { useLogout } from "../../hooks/useLogout";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import logo from "../../assets/green-initiative-logo.png";
 import Points from "./Points";
@@ -9,6 +9,10 @@ export default function Navbar() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
 
+  const x = ({ isActive, isPending }) => {
+    return isActive ? "active" : isPending ? "pending" : "";
+  };
+
   return (
     <header>
       <div className="navbar-upper-line"></div>
@@ -16,7 +20,7 @@ export default function Navbar() {
         <img className="logo" src={logo} alt="logo" />
         {user && (
           <>
-            <p>Hello, {user.displayName}!</p>
+            <p>{user.displayName}</p>
             <Points userId={user.uid} />
           </>
         )}
@@ -25,10 +29,15 @@ export default function Navbar() {
           {!user && (
             <>
               <li>
-                <Link to="/login">Login</Link>
+                <NavLink to="/login" className={x}>
+                  Login
+                </NavLink>
               </li>
               <li>
-                <Link to="/signup">Signup</Link>
+                NavLink
+                <NavLink to="/signup" className={x}>
+                  Signup
+                </NavLink>
               </li>
             </>
           )}
@@ -36,13 +45,19 @@ export default function Navbar() {
           {user && (
             <>
               <li>
-                <Link to="/plants">Plants</Link>
+                <NavLink to="/plants" className={x}>
+                  Plants
+                </NavLink>
               </li>
               <li>
-                <Link to="/profiles/1">Profile</Link>
+                <NavLink to="/profiles/1" className={x}>
+                  Profile
+                </NavLink>
               </li>
               <li>
-                <Link to="/history">History</Link>
+                <NavLink to="/history" className={x}>
+                  History
+                </NavLink>
               </li>
               <li>
                 <button className="btn" onClick={logout}>

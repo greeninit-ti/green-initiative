@@ -22,7 +22,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 11%;
+    padding: 15px 5%;
+}
+
+.navbar li {
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .btn:hover {
@@ -30,11 +35,11 @@
 }
 
 .navbar a {
-    color: #333;
+    color: #0d552d;
     text-decoration: none;
 }
 
 .navbar a.active {
-    color: #FFF;
-    text-decoration: none;
+    color: #15ac5c;
+    border-bottom: 2px solid #15ac5c;
 }

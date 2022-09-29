@@ -5,6 +5,8 @@
     text-align: center;
     margin: 20px;
     border-radius: 20px;
+    transition: opacity 0.5s;
+    opacity: 1;
   }
 
   .a-box:hover {
@@ -76,7 +78,3 @@
     margin: 20px;
     border-radius: 20px;
   }
-
-
-
- 

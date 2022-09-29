@@ -42,6 +42,9 @@ export default function Navbar() {
                 <Link to="/profiles/1">Profile</Link>
               </li>
               <li>
+                <Link to="/history">History</Link>
+              </li>
+              <li>
                 <button className="btn" onClick={logout}>
                   Logout
                 </button>

@@ -22,21 +22,31 @@ export default function Dashboard() {
     <div>
       {error && <p>{error}</p>}
       {documents &&
-        documents.map((doc) => (
-          <PlantCard
-            key={doc.id}
-            name={doc.name}
-            species={doc.species}
-            imageurl={doc.imageurl}
-            slot={doc.slot}
-            moisture={doc.moisture}
-            sunlight={doc.sunlight}
-            waterConsumption={doc.water_consumption}
-            zone_color={doc.zone_color}
-            onClick={handleClick}
-            mapURL={doc.mapURL}
-          />
-        ))}
+        documents
+          .sort((a, b) => {
+            if (a.moisture > b.moisture) {
+              return 1;
+            }
+            if (a.moisture < b.moisture) {
+              return -1;
+            }
+            return 0;
+          })
+          .map((doc) => (
+            <PlantCard
+              key={doc.id}
+              name={doc.name}
+              species={doc.species}
+              imageurl={doc.imageurl}
+              slot={doc.slot}
+              moisture={doc.moisture}
+              sunlight={doc.sunlight}
+              waterConsumption={doc.water_consumption}
+              zone_color={doc.zone_color}
+              onClick={handleClick}
+              mapURL={doc.mapURL}
+            />
+          ))}
       {urlOfImage && (
         <>
           <Modal show={show} size="xl" onHide={handleClose}>

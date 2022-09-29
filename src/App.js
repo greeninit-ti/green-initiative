@@ -11,6 +11,7 @@ import Signup from "./pages/signup/Signup";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import History from "./pages/History/History";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
@@ -41,6 +42,10 @@ function App() {
             <Route
               path="/plants"
               element={user ? <Dashboard /> : <Navigate to="/" replace />}
+            />
+            <Route
+              path="/history"
+              element={user ? <History /> : <Navigate to="/" replace />}
             />
           </Routes>
         </Router>

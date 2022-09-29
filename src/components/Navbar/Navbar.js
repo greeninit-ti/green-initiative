@@ -36,6 +36,12 @@ export default function Navbar() {
           {user && (
             <>
               <li>
+                <Link to="/plants">Plants</Link>
+              </li>
+              <li>
+                <Link to="/profiles/1">Profile</Link>
+              </li>
+              <li>
                 <button className="btn" onClick={logout}>
                   Logout
                 </button>

@@ -5,11 +5,12 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Signup from "./pages/signup/Signup";
 import Navbar from "./components/Navbar/Navbar";
+import Profile from "./pages/Profile/Profile";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
             <Route
               exact
               path="/"
-              element={user ? <Home /> : <Navigate to="/login" replace />}
+              element={user ? <Dashboard /> : <Navigate to="/login" replace />}
             />
             <Route
               path="/login"
@@ -32,6 +33,14 @@ function App() {
             <Route
               path="/signup"
               element={user ? <Navigate to="/" replace /> : <Signup />}
+            />
+            <Route
+              path="/profiles/:id"
+              element={user ? <Profile /> : <Navigate to="/" replace />}
+            />
+            <Route
+              path="/plants"
+              element={user ? <Dashboard /> : <Navigate to="/" replace />}
             />
           </Routes>
         </Router>

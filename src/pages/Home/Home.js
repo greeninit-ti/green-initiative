@@ -3,13 +3,19 @@ import "./Home.css";
 import { useCollection } from "../../hooks/useCollection";
 import logo from "../../assets/green-initiative-logo.png";
 import { useState } from "react";
+import Modal from 'react-bootstrap/Modal';
 
 export default function Home() {
   const { documents, error } = useCollection("plants");
   const [urlOfImage, setUrlOfImage] = useState(null);
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const handleClick = (incomingURL) => {       
     urlOfImage !== incomingURL ? setUrlOfImage(incomingURL) : setUrlOfImage(null);
+    handleShow();
  }
   return (
     <div>
@@ -30,7 +36,11 @@ export default function Home() {
             mapURL={doc.mapURL}
           />
         ))}
-        {urlOfImage && <img className="mapOfPlant" src={urlOfImage}/>}
+        {urlOfImage && <>
+      <Modal show={show} size="xl" onHide={handleClose}>
+        <Modal.Body><center><img className="mapOfPlant" src={urlOfImage}/></center></Modal.Body>
+      </Modal>
+    </>}
     </div>
   );
 }

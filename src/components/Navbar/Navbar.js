@@ -34,7 +34,6 @@ export default function Navbar() {
                 </NavLink>
               </li>
               <li>
-                NavLink
                 <NavLink to="/signup" className={x}>
                   Signup
                 </NavLink>
@@ -52,6 +51,11 @@ export default function Navbar() {
               <li>
                 <NavLink to="/profiles/1" className={x}>
                   Profile
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to = "/leaderboard" className={x}>
+                  Leaderboard
                 </NavLink>
               </li>
               <li>

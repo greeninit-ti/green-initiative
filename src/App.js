@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import History from "./pages/History/History";
+import Leaderboard from "./pages/Leaderboard/Leaderboard";
 import { useAuthContext } from "./hooks/useAuthContext";
 import sagLogo from "./assets/SoftwareAG.png";
 import emailSvg from "./assets/mail_FILL0_wght400_GRAD0_opsz24.svg";
@@ -46,6 +47,10 @@ function App() {
               path="/plants"
               element={user ? <Dashboard /> : <Navigate to="/" replace />}
             />
+            <Route
+              path="/leaderboard"
+              element={user ? <Leaderboard /> : <Navigate to="/" replace />}
+              />
             <Route
               path="/history"
               element={user ? <History /> : <Navigate to="/" replace />}

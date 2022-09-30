@@ -31,8 +31,8 @@ export default function History() {
   const { documents, error } = useCollection("history");
 
   return (
-    <div className="container">
-      <ul className="responsive-table">
+    <div className="container-h">
+      <ul className="responsive-table-h">
         <li className="table-header">
           <div className="col col-1">User</div>
           <div className="col col-2">Plant name</div>

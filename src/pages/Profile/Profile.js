@@ -22,14 +22,13 @@ const ReactFirebaseFileUpload = () => {
       console.log("We are at handleChange");
       console.log(e.target.files[0].name);
       setImage(e.target.files[0]);
-      console.log("CUSTOM LOG ", image);
     }
   };
 
   const handleUpload = () => {
-    console.log("aspodkapsodk " + image.name);
+    console.log("aspodkapsodk " + image);
     const uploadPath = "profileImage/" + image.name;
-    const uploadTask = projectStorage.ref(uploadPath).put(image);
+    const uploadTask = projectStorage.ref().child(uploadPath).put(image);
     uploadTask.on(
       "state_changed",
       (snapshot) => {

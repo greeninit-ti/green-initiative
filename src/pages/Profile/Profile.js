@@ -1,20 +1,20 @@
 import "./Profile.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useDocument } from "../../hooks/useDocument";
 import { useState } from "react";
-import { projectStorage } from "../../firebase/config";
+import { projectStorage, database } from "../../firebase/config";
+import NestedProfileData from "./NestedProfileData";
 
 const Profile = () => {
-  const { user } = useAuthContext();
   const [selectedFile, setSelectedFile] = useState(null);
   const [image, setImage] = useState(null);
-  const [url, setUrl] = useState("");
 
   return <ReactFirebaseFileUpload />;
 };
 
 const ReactFirebaseFileUpload = () => {
+  const { user } = useAuthContext();
   const [image, setImage] = useState(null);
-  const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);
 
   const handleChange = (e) => {
@@ -25,12 +25,12 @@ const ReactFirebaseFileUpload = () => {
     }
   };
 
-  const handleUpload = (event) => {
+  const handleUpload = async (event) => {
     event.preventDefault();
     console.log("aspodkapsodk " + image);
-    const uploadPath = "profileImage/" + image.name;
+    const uploadPath = "profileImage/" + user.uid + "/" + image.name;
     const uploadTask = projectStorage.ref().child(uploadPath).put(image);
-    uploadTask.on(
+    await uploadTask.on(
       "state_changed",
       (snapshot) => {
         const progress = Math.round(
@@ -43,17 +43,22 @@ const ReactFirebaseFileUpload = () => {
       },
       () => {
         projectStorage
-          .ref("profileImage")
+          .ref("profileImage/" + user.uid)
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
-            setUrl(url);
+            console.log(url + " new url");
+            var updates = {};
+            updates["users/" + user.uid + "/profileImage"] = url;
+            database.ref().update(updates);
           });
       }
     );
+    // console.log(url + " CUSTOM LOG ADDED");
   };
 
-  console.log("image: ", image);
+  // console.log("image: ", image);
+  // console.log("URL => " + urlOf);
 
   return (
     <div>
@@ -63,13 +68,10 @@ const ReactFirebaseFileUpload = () => {
         <br />
         <input name="buton" type="file" onChange={(e) => handleChange(e)} />
         <button onClick={handleUpload}>Upload</button>
-        <br />
-        {url}
-        <br />
-        <img
-          src={url || "http://via.placeholder.com/300"}
-          alt="firebase-image"
-        />
+        {/* <br />
+        {user.profileImage}
+        <br /> */}
+        <NestedProfileData userId={user.uid} />
       </form>
     </div>
   );

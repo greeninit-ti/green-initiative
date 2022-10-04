@@ -5,10 +5,10 @@ export default function Leaderboard() {
   const { documents, error } = useCollection("users");
 
   return (
-    <div className="container">
+    <div className="container-l">
       <h2>Leaderboard</h2>
-      <ul className="responsive-table">
-        <li className="table-header">
+      <ul className="responsive-table-l">
+        <li className="table-header-l">
           <div className="col col-1">User</div>
           <div className="col col-2">Points</div>
         </li>

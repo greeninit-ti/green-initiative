@@ -25,7 +25,8 @@ const ReactFirebaseFileUpload = () => {
     }
   };
 
-  const handleUpload = () => {
+  const handleUpload = (event) => {
+    event.preventDefault();
     console.log("aspodkapsodk " + image);
     const uploadPath = "profileImage/" + image.name;
     const uploadTask = projectStorage.ref().child(uploadPath).put(image);
@@ -60,7 +61,7 @@ const ReactFirebaseFileUpload = () => {
         <progress value={progress} max="100" />
         <br />
         <br />
-        <input name="buton" type="file" onChange={handleChange} />
+        <input name="buton" type="file" onChange={(e) => handleChange(e)} />
         <button onClick={handleUpload}>Upload</button>
         <br />
         {url}

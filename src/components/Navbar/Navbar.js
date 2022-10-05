@@ -2,7 +2,7 @@ import "./Navbar.css";
 import { useLogout } from "../../hooks/useLogout";
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import logo from "../../assets/green-initiative-logo.png";
+import logo from "../../assets/green_logo.png";
 import Points from "./Points";
 
 export default function Navbar() {
@@ -17,7 +17,7 @@ export default function Navbar() {
     <header>
       <div className="navbar-upper-line"></div>
       <nav className="navbar">
-        <img className="logo" src={logo} alt="logo" />
+        <img className="logo" src={logo} alt="logo" width="7%" height="7%"/>
         {user && (
           <>
             <p>{user.displayName}</p>
